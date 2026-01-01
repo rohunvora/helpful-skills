@@ -4,6 +4,37 @@ All notable changes to these skills are documented here.
 
 ---
 
+## 2025-01-01
+
+### arena-cli
+
+**Created:** CLI tools for Are.na block management with vision AI enrichment.
+
+**Scripts:**
+
+| Script | Purpose |
+|--------|---------|
+| `export-blocks.ts` | Incremental block export from Are.na channels |
+| `enrich-blocks.ts` | Vision AI enrichment with Gemini (titles, tags, patterns) |
+| `gen-view.cjs` | HTML gallery with search and lightbox |
+| `gen-search-view.cjs` | Visual search results with selection mode |
+
+**Selection mode:** Visual feedback workflow—checkboxes on image cards, copy-able JSON output grouped by category. Enables "visual AskUserQuestion" pattern for validating search results.
+
+**Output format:**
+```json
+{
+  "_context": "Gap references selected from Are.na",
+  "selections": {
+    "Category": [{ "id": 123, "title": "Title" }]
+  }
+}
+```
+
+**Uses:** incremental-fetch pattern for robust API fetching.
+
+---
+
 ## 2024-12-31
 
 ### HTML Skills Architecture

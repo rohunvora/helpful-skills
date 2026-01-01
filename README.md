@@ -10,6 +10,7 @@ Skills are modular packages that give Claude procedural knowledge it doesn't hav
 
 | Skill | Description |
 |-------|-------------|
+| [arena-cli](skills/arena-cli/) | Export, enrich, and browse Are.na blocks with vision AI |
 | [quick-view](skills/quick-view/) | Generate HTML pages to review terminal output in a browser |
 | [table-filters](skills/table-filters/) | Design optimal filtering UX for data tables |
 | [html-style](skills/html-style/) | Apply consistent visual styling to HTML |
