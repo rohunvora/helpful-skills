@@ -1,4 +1,4 @@
-# Claude Code Skills
+# Helpful Skills
 
 A collection of skills for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that extend its capabilities with specialized workflows.
 
