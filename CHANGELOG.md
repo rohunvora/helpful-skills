@@ -6,6 +6,20 @@ All notable changes to these skills are documented here.
 
 ## 2025-01-01
 
+### quick-view
+
+**Updated:** File naming lifecycle for temporary vs finalized views.
+
+| Stage | Filename | When |
+|-------|----------|------|
+| Temporary | `name-temp.html` | Default for new views |
+| Keeper | `name.html` | User approves |
+| Archived | `name.DATE.html` | Previous keeper when replacing |
+
+**Workflow:** Create with `-temp` suffix → promote on approval → archive old keeper if replacing.
+
+---
+
 ### arena-cli
 
 **Created:** CLI tools for Are.na block management with vision AI enrichment.

@@ -18,13 +18,51 @@ Generate minimal HTML to review structured data in a browser. Minimal styling, m
 **DO:**
 - Semantic HTML: `<table>`, `<ul>`, `<details>`, `<pre>`, `<h1-3>`
 - Use the base template with CSS variables
-- Write to `_private/views/{name}.html`
-- Open with `open _private/views/{name}.html`
+- Write to `_private/views/`
+- Open with `open _private/views/{filename}`
 
 **DO NOT:**
 - Add decorative styling beyond the base template
 - Use CSS frameworks
 - Over-engineer or "make it nice"
+
+## File Naming
+
+Views have a lifecycle: temporary → keeper → archived.
+
+| Stage | Filename | When |
+|-------|----------|------|
+| Temporary | `name-temp.html` | Default for new views |
+| Keeper | `name.html` | User says "keep this", "this is good" |
+| Archived | `name.2025-01-01.html` | Previous keeper when promoting new one |
+
+**Rules:**
+1. **Always create with `-temp` suffix** — Every new view starts as `name-temp.html`
+2. **Promote on approval** — When user approves, rename to `name.html`
+3. **Archive before replacing** — If `name.html` exists, rename to `name.DATE.html` before promoting
+4. **Never regenerate keepers** — Only regenerate `-temp` files
+
+**Workflow:**
+```
+# First iteration
+drafts-temp.html  ← created
+
+# User: "keep this"
+drafts.html       ← promoted (temp deleted)
+
+# Later iteration
+drafts-temp.html  ← new temp created
+drafts.html       ← keeper untouched
+
+# User: "this is better, keep it"
+drafts.2025-01-01.html  ← old keeper archived
+drafts.html             ← new keeper promoted
+```
+
+**Trigger phrases for promotion:**
+- "keep this", "this is good", "save this"
+- "make this the default", "lock this in"
+- "I like this one"
 
 ## Base Template
 
@@ -307,8 +345,9 @@ Add export button in header when using editable drafts:
 1. Identify the data to display (file, variable, recent output)
 2. Choose pattern: list, table, or expandable sections
 3. Generate HTML using template above
-4. Write to `_private/views/{name}.html`
-5. Run `open _private/views/{name}.html`
+4. Write to `_private/views/{name}-temp.html`
+5. Run `open _private/views/{name}-temp.html`
+6. If user approves, promote to `{name}.html`
 
 ## Example
 
@@ -318,10 +357,16 @@ Claude:
 1. Reads `_private/drafts/outreach_drafts.md`
 2. Parses each draft (heading = contact, body = draft)
 3. Generates HTML with `<details>` for each draft
-4. Writes to `_private/views/drafts.html`
-5. Runs `open _private/views/drafts.html`
+4. Writes to `_private/views/drafts-temp.html`
+5. Runs `open _private/views/drafts-temp.html`
 
 Result: Browser opens, user sees expandable list of drafts with auto dark/light mode, long content truncated with "Show more", can copy each one.
+
+User: "this looks good, keep it"
+
+Claude:
+1. Renames `drafts-temp.html` → `drafts.html`
+2. Confirms: "Saved as drafts.html"
 
 ## Styling Handoff
 
