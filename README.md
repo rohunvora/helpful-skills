@@ -12,6 +12,8 @@ Turn terminal output into a webpage you can read.
 
 Say "show me this" and Claude generates HTML, opens it in your browser. Useful for reviewing JSON, logs, lists, drafts — anything hard to scan in the terminal.
 
+![quick-view output](screenshots/quick-view.png)
+
 ---
 
 ## table-filters
@@ -19,6 +21,8 @@ Say "show me this" and Claude generates HTML, opens it in your browser. Useful f
 Add the right filter to each column.
 
 Describe your data. Claude picks the filter type: text search, checkboxes, date range, numeric — based on what makes sense.
+
+![table-filters output](screenshots/table-filters.png)
 
 ---
 
@@ -28,6 +32,8 @@ Make HTML look finished.
 
 Takes working markup, adds polish: dark mode, status colors, visual hierarchy. Pairs with quick-view and table-filters.
 
+![html-style output](screenshots/html-style.png)
+
 ---
 
 ## incremental-fetch
@@ -36,6 +42,8 @@ Download API data without losing progress.
 
 Saves after each page. Tracks position. Resumes if interrupted. Never re-downloads what you have.
 
+![incremental-fetch output](screenshots/incremental-fetch.png)
+
 ---
 
 ## arena-cli
@@ -43,6 +51,8 @@ Saves after each page. Tracks position. Resumes if interrupted. Never re-downloa
 Export and search your Are.na visually.
 
 Fetch blocks from channels. Enrich images with AI-generated titles and tags. Browse in a local gallery.
+
+![arena-cli output](screenshots/arena-cli.png)
 
 ---
 
