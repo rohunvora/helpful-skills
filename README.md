@@ -1,4 +1,4 @@
-# Helpful Skills
+# Cool Claude Skills
 
 Skills for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that make common tasks easier.
 
