@@ -4,6 +4,18 @@ Cross-platform aggregator data. For platform-specific data, see:
 - **tg-ingest skill** for Telegram data locations
 - **imsg-ingest skill** for iMessage data locations
 
+## File Management Philosophy
+
+| Intent | Destination | Lifetime |
+|--------|-------------|----------|
+| Sync/store | `data/` | Permanent |
+| Quick look | stdout | Seconds |
+| Copy-paste | stdout → `pbcopy` or `quick-view` | Minutes |
+| Save for later | `exports/` with timestamp | Permanent |
+| Generated artifacts | `output/` | Semi-permanent |
+
+**Rule: Ephemeral output goes to stdout.** No temp files for quick exports.
+
 ## unified-messages
 
 **Base**: `/Users/satoshi/data/unified-messages`

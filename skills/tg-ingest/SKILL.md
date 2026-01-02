@@ -35,18 +35,41 @@ poetry run tg_export list-dms
 
 ## Core Workflows
 
-### Export Messages from a Person
+### Quick Export for AI Context (Recommended)
+
+Get recent messages as markdown, ready to paste into Claude:
 
 ```bash
-# By username
+# Syncs first, outputs to stdout (last 24h)
+python scripts/quick_export.py klutch
+
+# Custom time range
+python scripts/quick_export.py klutch --hours 48
+
+# Copy to clipboard
+python scripts/quick_export.py klutch | pbcopy
+
+# Visual copy in browser
+python scripts/quick_export.py klutch | quick-view
+
+# Intentional save
+python scripts/quick_export.py klutch --save
+# → exports/klutch_2026-01-02.md
+```
+
+See [references/files.md](references/files.md) for file management philosophy.
+
+### Export via CLI (Alternative)
+
+```bash
+# By username (pulls from API, may have caching issues)
 poetry run tg_export dump-dm --user vibhu --out vibhu.jsonl
 
 # Last 7 days only
 poetry run tg_export dump-dm --user vibhu --last 7d --out vibhu.jsonl
-
-# Quick export (last hour, cleaned for LLM)
-poetry run tg_export quick --chat-url t.me/username --hours 1
 ```
+
+**Note:** Prefer quick_export.py for reading synced data. Use dump-dm only for initial exports.
 
 ### Sync Operations
 

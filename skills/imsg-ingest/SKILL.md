@@ -39,7 +39,31 @@ poetry run imsg dump "+14155551234" --output john.jsonl
 
 ## Core Workflows
 
-### Export Messages from a Person
+### Quick Export for AI Context (Recommended)
+
+Get recent messages as markdown, ready to paste into Claude:
+
+```bash
+# Syncs first, outputs to stdout (last 24h)
+python scripts/quick_export.py "+14155551234"
+
+# By contact name
+python scripts/quick_export.py "John Doe" --hours 48
+
+# Copy to clipboard
+python scripts/quick_export.py "+14155551234" | pbcopy
+
+# Visual copy in browser
+python scripts/quick_export.py "+14155551234" | quick-view
+
+# Intentional save
+python scripts/quick_export.py "+14155551234" --save
+# → exports/14155551234_2026-01-02.md
+```
+
+See [references/files.md](references/files.md) for file management philosophy.
+
+### Export via CLI (Alternative)
 
 ```bash
 # By phone number
@@ -53,9 +77,6 @@ poetry run imsg dump "John Doe" --output john.jsonl
 
 # Last 7 days only
 poetry run imsg dump "+14155551234" --last 7d --output john.jsonl
-
-# Limit messages
-poetry run imsg dump "+14155551234" --limit 100 --output john.jsonl
 ```
 
 ### Sync Operations
